@@ -4,3 +4,4 @@ Vindhya Rachur
 Connor French
 Eric Bucknam
 Abigail Geshwind
+Jiafeng Li
