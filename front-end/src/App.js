@@ -1,30 +1,34 @@
-import React from 'react';
-
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
-
-import Home from './Home'
-import Login from './Login'
-import Requests from './Requests'
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import Home from './Home';
+import Login from './Login';
+import Requests from './Requests';
 import './App.css';
+import {Nav, Navbar} from 'react-bootstrap';
 
-function App() {
+class App extends Component {
+  
+  render() {
     return (
-      <Router>
-      <Navbar>
-      <Navbar.Brand href="/">UltiChart</Navbar.Brand>
-        <Nav className = "mr-auto">
-          <Link to ="/">Home</Link>
-          <Link to ="/requests">Requests</Link>
-          <Link to ="/login">Login</Link>
-        </Nav>
-      </Navbar>
-        <Route path = "/" exact render = {() => <Home/>}/>
-        <Route path = "/login" render = {() => <Login/>}/>
-        <Route path = "/requests" render = {() => <Requests/>}/>
-      </Router>
-    )};
+      <div>
+        <Router>
+          <Navbar className ="navbar-bgColor"  variant = "dark">
+            <Navbar.Brand href="/" >UltiChart</Navbar.Brand>
+            <Nav className = "navbar-main">
+              <Nav.Link href = "/">Home</Nav.Link>
+              <Nav.Link href = "/login">Login</Nav.Link>
+              <Nav.Link href = "/requests">Requests</Nav.Link>
+            </Nav>
+          </Navbar>
+          <Switch>
+            <Router exact path = "/"><Home/></Router>
+            <Router path = "/login"><Login/></Router>
+            <Router path = "/requests"><Requests/></Router>
+          </Switch>
+        </Router>
+      </div>
+    );
+  }
+}
 
 export default App;

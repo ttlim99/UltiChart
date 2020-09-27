@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.navbar-bgColor{
+  background-color: #005151;
+}
+
+.navbar-textColor {
+  color : white;
+}
