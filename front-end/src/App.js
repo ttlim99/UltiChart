@@ -9,6 +9,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 
 import './App.css';
+import {Nav, Navbar} from 'react-bootstrap';
 
 function App() {
     return (
