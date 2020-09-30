@@ -64,3 +64,11 @@
   color: #005151;
   font-size: 22px;
 }
+
+.navbar-bgColor{
+  background-color: #005151;
+}
+
+.navbar-textColor {
+  color : white;
+} 
