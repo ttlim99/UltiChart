@@ -14,7 +14,7 @@ function LoginForm() {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password"></Form.Control>
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button href = "/" variant="primary" type="submit">
                     Submit
                 </Button>
 
