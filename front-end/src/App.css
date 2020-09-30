@@ -65,10 +65,18 @@
   font-size: 22px;
 }
 
-.navbar-bgColor{
+.navbar{
   background-color: #005151;
+  color : white;
 }
 
-.navbar-textColor {
-  color : white;
-} 
+.login-form{
+  width: 20%;
+}
+
+.login-text{
+  display: flex;
+  justify-content: center;
+  color: #005151;
+  font-size: 22px;
+}

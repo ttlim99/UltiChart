@@ -4,7 +4,10 @@ import LoginForm from './LoginForm'
 function Login() {
   return (
     <div className="App">
-      <LoginForm/>
+      <div>
+        <h1 className = "home-text">Login</h1>
+        <LoginForm/>
+      </div>
     </div>
   );
 }

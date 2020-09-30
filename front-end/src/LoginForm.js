@@ -4,13 +4,13 @@ import {Form, Button} from 'react-bootstrap'
 
 function LoginForm() {
     return (
-        <>
-            <Form className="mx-5 p-3" style={{border:"1px solid #C0C0C0"}}>
-                <Form.Group controlId="formID">
+        <div align = "center">
+            <Form className="mx-5 p-3 login-form" style={{border:"1px solid #C0C0C0"}}>
+                <Form.Group align = "left" controlId="formID">
                     <Form.Label>ID</Form.Label>
                     <Form.Control type="text" placeholder="Enter ID"></Form.Control>
                 </Form.Group>
-                <Form.Group controlId="formPass">
+                <Form.Group align = "left" controlId="formPass">
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password"></Form.Control>
                 </Form.Group>
@@ -19,7 +19,7 @@ function LoginForm() {
                 </Button>
 
             </Form>
-        </>
+        </div>
     )
 
 }

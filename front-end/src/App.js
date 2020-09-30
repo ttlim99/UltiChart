@@ -14,7 +14,7 @@ function App() {
   return (
     <div>
     <Router>
-      <Navbar className ="navbar-bgColor"  variant = "dark">
+      <Navbar className ="navbar"  variant = "dark">
         <Navbar.Brand href="/" >UltiChart</Navbar.Brand>
         <Nav className = "navbar-main">
           <Nav.Link href = "/">Home</Nav.Link>
