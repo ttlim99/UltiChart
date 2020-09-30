@@ -1,17 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
-
-import './App.css';
-
-function Home() {
-  return (
-    <div className="App">
-        <h1>
-          hello world
-        </h1>
-    </div>
-  );
-=======
 import { Col, Form, Button } from 'react-bootstrap';
 import './App.css';
 import TreeExample from './ChartComponent/TreeExample'
@@ -39,7 +26,6 @@ class Home extends React.Component {
       </div>
     );
   }
->>>>>>> 488fc496fb59fc0232d76044069c93e557798680
 }
 
 export default Home;
