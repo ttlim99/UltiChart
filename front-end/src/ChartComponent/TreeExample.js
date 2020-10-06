@@ -12,6 +12,7 @@ class TreeExample extends React.Component {
                     lineColor = {'green'}
                     lineBorderRadius = {'10px'}
                     label = {<ManagerNode/>}
+                    nodePadding = {'80px'}
                 >
                     <TreeNode label = {<EmployeeNode/>}>
                         <TreeNode label = {<EmployeeNode/>}></TreeNode>

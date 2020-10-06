@@ -80,3 +80,19 @@
   color: #005151;
   font-size: 22px;
 }
+
+.employee-node{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-color:  #008000;
+  cursor: pointer;
+}
+
+.manager-node{
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width:20%;
+  cursor: pointer;
+
+}
