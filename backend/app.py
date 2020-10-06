@@ -1,61 +1,21 @@
-from flask import Flask, request, jsonify
-import db
-import json
+from flask import Flask
+import pymongo
+from pymongo import MongoClient
+import json 
+from bson import json_util
+# Mac: export FLASK_APP=app.py flask run
+# To keep it in dev mode continuously: export FLASK_APP=app.py FLASK_ENV=development
+# Talking Points: 1. Close closest cluster for lowest latency
+# Notes: 3.7.6 but using Python 3.4 or later -- why?
+
+cluster_320 = MongoClient("mongodb://cc320:cc320@320-shard-00-00.8rfoj.mongodb.net:27017,320-shard-00-01.8rfoj.mongodb.net:27017,320-shard-00-02.8rfoj.mongodb.net:27017/320?ssl=true&replicaSet=atlas-mkdts8-shard-0&authSource=admin&retryWrites=true&w=majority")
+
+db = cluster_320["Employees"]
+collection = db["collection"]
+
 app = Flask(__name__)
 
-class Employee(db.Document):
-    firstName = db.StringField()
-    lastName = db.StringField()
-    companyID = db.IntField()
-    password = db.StringField()
-    positionTitle = db.StringField()
-    companyName = db.StringField()
-    isManager = db.BooleanField()
-    employeeID = db.IntField()
-    managerID = db.IntField()
-    email = db.EmailField()
-    startDate = db.StringField()
-    def to_json(self):
-        return {"firstName": self.firstName,
-                "lastName": self.lastName,
-                "companyID": self.companyID,
-                "password": self.password,
-                "positionTitle": self.positionTitle,
-                "companyName": self.companyName,
-                "isManager": self.isManager,
-                "employeeID": self.employeeID,
-                "managerID": self.managerID,
-                "email": self.email,
-                "startDate": self.startDate}
-
-@app.route('/')
-def flask_mongodb_atlas():
-    return "flask mongodb atlas!"
-@app.route('/test')
-
-def test():
-    db.db.collection.insert_one({"name": "John"})
-    return "Connected to the data base!"
-
-
-@app.route('/', methods=['PUT'])
-def hire():
-    record = json.loads(request.data)
-    employee = Employee(firstName=record['firstName'],
-                lastName=record['lastName'],
-                companyID = record['companyID'],
-                password = record['password'],
-                positionTitle = record['positionTitle'],
-                companyName = record['companyName'],
-                isManager = record['isManager'],
-                employeeID = record['employeeID'],
-                managerId = record['managerID'],
-                email = record['email'],
-                startDate = record['startDate'])
-    employee.save()
-    return jsonify(employee.to_json())
-
-if __name__ == '__main__':
-    app.run(port=8000)
-
-#test to insert data to the data base
+@app.route("/details", methods=["GET"])
+def get_employees():
+    all_employees = list(collection.find({}))
+    return json.dumps(all_employees, default=json_util.default)
