@@ -18,7 +18,12 @@ app = Flask(__name__)
 
 @app.route("/details/<email>", methods=["GET"])
 def get_employees(email):
-    """Find employee object with given email and retrieve empID. Get all employees where managerId == empId."""
+    """Find employee object with given email and retrieve empID. Get all employees where managerId == empId.
+    Returns empId and direct reports of employee we are looking at.
+    Args: email of employee
+    Note: Direct reports are defined as an employee who has the current empId as managerId.
+    """
+
     direct_reports = []
     current_emp = collection.find_one({"email": email})
     all_employees = collection.find({"managerId": current_emp["employeeId"]})
