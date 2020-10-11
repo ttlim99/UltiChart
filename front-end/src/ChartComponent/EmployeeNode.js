@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState } from 'react'
-import employee from '../images/employee.png'
 import Card from 'react-bootstrap/Card'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
