@@ -8,6 +8,7 @@ from bson import json_util
 # Talking Points for Presentation: 1. Use closest cluster for lowest latency 2. Chose PyMongo over MongoEngine -- why? 3. Demo Login
 # Notes: 3.7.6 but using Python 3.4 or later -- why?
 
+# Change connection string depending on your python version. 
 cluster_320 =  MongoClient("mongodb://cc320:cc320@320-shard-00-00.8rfoj.mongodb.net:27017,320-shard-00-01.8rfoj.mongodb.net:27017,320-shard-00-02.8rfoj.mongodb.net:27017/320?ssl=true&replicaSet=atlas-mkdts8-shard-0&authSource=admin&retryWrites=true&w=majority")
 db = cluster_320["Employees"]
 collection = db["Tiger_Microsystems-employees"]
@@ -56,17 +57,13 @@ def get_employees(email):
 # Add json data via Postman to server. 
 @app.route("/hire", methods=["POST"])
 def get_json_employees():
-    print("1.before allemps")
     all_employees = list(collection.find({}))
-    print("before json check")
     if request.is_json:
         # Get the data that is being added.
         employees = request.get_json()
         # Append the json data to the database.
         all_employees.append(employees)
         # Inserts to the database.
-
-        print("before collection insertions")
         collection.insert_one(employees);
         return {'id': len(all_employees)}, 200
     # The user did not enter json format.
