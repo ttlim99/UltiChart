@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import PropTypes from 'prop-types';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import {faFileAlt}  from '@fortawesome/free-solid-svg-icons';
 import _ from 'lodash';
 import fontawesome from '@fortawesome/fontawesome';
