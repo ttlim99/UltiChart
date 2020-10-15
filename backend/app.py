@@ -34,7 +34,7 @@ def get_employees(email):
     all_employees = collection.find({"managerId": current_emp["employeeId"]})
 
     for employee in all_employees:
-        direct_reports.append({"firstName": employee["firstName"], "lastName": employee["lastName"]})
+        direct_reports.append({"firstName": employee["firstName"], "lastName": employee["lastName"], "employeeID": employee["employeeId"], "managerID": employee["managerId"]})
     
     return jsonify({"employeeId": current_emp["employeeId"], "directReports": direct_reports})
 
